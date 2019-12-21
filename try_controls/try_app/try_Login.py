@@ -30,45 +30,51 @@ lbl_info = tk.Label(
 
 lbl_info.place(x=20, y=20)
 
-default_var = tk.StringVar(value='Username')
+default_var = tk.StringVar(value='Hello Jackson')
 entry_cleartext = tk.Entry(
     top_win,
     show=None,
-    bg='white',
-    width=23,
     textvariable=default_var,
-    font=('Arial', 14)
 )
 entry_cleartext.place(x=20, y=60)
-
-def cmd_check():
-    u = ety_username.get()
-    print(u)
-    p = ety_password.get()
-    print(p)
-    if u!='123456':
-        tk.messagebox.showinfo(title='Information',
-                                message='Username is wrong')
-    elif p!='123456':
-        tk.messagebox.showinfo(title='Information',
-                                message='Password is wrong')
-    else:
-        tk.messagebox.showinfo(title='Information',
-                                message='Well done')
-    return
 
 
 default_var = tk.StringVar(value='Password')
 entry_cleartext = tk.Entry(
     top_win,
-    show=None,
+    show='*'',
     bg='white',
     textvariable=default_var,
-    width=23,
-    font=('Arial', 14)
 )
 entry_cleartext.place(x=20, y=100)
 entry_cleartext.get()
+
+def cmd_login():
+    print(ent_username.get())
+    print(ent_password.get())
+    u = ent_username.get()
+    p = ent_password.get()
+
+    if u == 'admin' and p =='666':
+        tk.messagebox.showinfo(title='Information', message='Succeed!')
+    else:
+        tk.messagebox.showerror(title='Information', message='Wrong user name or password')
+    return
+
+    btn_login = tk.Button(
+        top_win,
+        text='Sign in',
+        relief='raised',
+        width=10, height=2,
+        bg='#ceceff', fg='white',
+        command = self.cmd_login,
+        )
+        self.btn_login.place(x=20, y=140, width=50)
+        return
+
+
+
+
 
 
 btn_text = tk.Button(top_win, text='Log in', bg='purple',
